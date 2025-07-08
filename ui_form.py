@@ -1105,6 +1105,15 @@ class Ui_fen_main(object):
         self.scrollAreaWidgetContents.setMinimumSize(QSize(900, 900))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.widget_3 = QWidget(self.scrollAreaWidgetContents)
+        self.widget_3.setObjectName(u"widget_3")
+        self.widget_3.setMinimumSize(QSize(0, 35))
+        self.label_titre_tableauDeBord = QLabel(self.widget_3)
+        self.label_titre_tableauDeBord.setObjectName(u"label_titre_tableauDeBord")
+        self.label_titre_tableauDeBord.setGeometry(QRect(20, 10, 111, 16))
+
+        self.verticalLayout_16.addWidget(self.widget_3)
+
         self.widget_6 = QWidget(self.scrollAreaWidgetContents)
         self.widget_6.setObjectName(u"widget_6")
         self.widget_6.setMinimumSize(QSize(561, 141))
@@ -1548,6 +1557,7 @@ class Ui_fen_main(object):
         self.ZoneRecherche.setPlaceholderText(QCoreApplication.translate("fen_main", u"Rechercher dans la page ...", None))
         self.indicat_recherche.setText("")
         self.btn_notification_bar_nav.setText("")
+        self.label_titre_tableauDeBord.setText(QCoreApplication.translate("fen_main", u"Tableau de bord", None))
         self.label_equipement_totaux.setText(QCoreApplication.translate("fen_main", u"Equipements Totaux", None))
         self.label.setText("")
         self.label_nombre_equipements.setText(QCoreApplication.translate("fen_main", u"7", None))
@@ -1566,11 +1576,11 @@ class Ui_fen_main(object):
         self.label_sous_titre_etat_equipement_2.setText(QCoreApplication.translate("fen_main", u"Nombre de tickets ouvert  par niveau de priorit\u00e9", None))
         self.label_titre_alerte_recentes.setText(QCoreApplication.translate("fen_main", u"Alertes R\u00e9centes", None))
         self.label_sous_titre_alertes_recentes.setText(QCoreApplication.translate("fen_main", u"Notifications importantes concernant  le parc informatique", None))
-        self.label_titre_page_equipement.setText(QCoreApplication.translate("fen_main", u"TextLabel", None))
+        self.label_titre_page_equipement.setText(QCoreApplication.translate("fen_main", u"Gestions des \u00e9quipement ", None))
         self.btn_ajouter_equipement.setText(QCoreApplication.translate("fen_main", u"Ajouter un Equipement ", None))
-        self.label_titre_page_tickets.setText(QCoreApplication.translate("fen_main", u"TextLabel", None))
+        self.label_titre_page_tickets.setText(QCoreApplication.translate("fen_main", u"Gestions des tickets", None))
         self.btn_ajouter_tickets.setText(QCoreApplication.translate("fen_main", u"Ajouter un Ticket", None))
-        self.label_titre_page_tickets_2.setText(QCoreApplication.translate("fen_main", u"TextLabel", None))
+        self.label_titre_page_tickets_2.setText(QCoreApplication.translate("fen_main", u"Gestion des utilisateurs", None))
         self.btn_ajouter_utilisateur.setText(QCoreApplication.translate("fen_main", u"Ajouter un Utilisateur", None))
     # retranslateUi
 

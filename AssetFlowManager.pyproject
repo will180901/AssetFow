@@ -5,9 +5,11 @@
         "GestionTickets.py",
         "GestionUtilisateur.py",
         "NavigationManager.py",
+        "fen_enreg_utilisateur.ui",
         "fen_main.py",
         "form.ui",
         "icones.qrc",
-        "ui_form.py"
+        "ui_form.py",
+        "ui_fen_enreg_utilisateur.py"
     ]
 }

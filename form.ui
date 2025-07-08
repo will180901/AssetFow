@@ -1355,6 +1355,29 @@ QLabel.MontantBadgePending:hover {
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
+                <widget class="QWidget" name="widget_3" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <widget class="QLabel" name="label_titre_tableauDeBord">
+                  <property name="geometry">
+                   <rect>
+                    <x>20</x>
+                    <y>10</y>
+                    <width>111</width>
+                    <height>16</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>Tableau de bord</string>
+                  </property>
+                 </widget>
+                </widget>
+               </item>
+               <item>
                 <widget class="QWidget" name="widget_6" native="true">
                  <property name="minimumSize">
                   <size>
@@ -1894,7 +1917,7 @@ QLabel.MontantBadgePending:hover {
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string>Gestions des équipement </string>
                 </property>
                </widget>
               </item>
@@ -2010,7 +2033,7 @@ QLabel.MontantBadgePending:hover {
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string>Gestions des tickets</string>
                 </property>
                </widget>
               </item>
@@ -2126,7 +2149,7 @@ QLabel.MontantBadgePending:hover {
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string>Gestion des utilisateurs</string>
                 </property>
                </widget>
               </item>
