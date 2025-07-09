@@ -18,8 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGridLayout,
     QHBoxLayout, QHeaderView, QLabel, QLineEdit,
     QMainWindow, QPushButton, QScrollArea, QSizePolicy,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QToolButton,
-    QVBoxLayout, QWidget)
+    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QToolButton, QVBoxLayout, QWidget)
 import rc_icones
 
 class Ui_fen_main(object):
@@ -749,101 +749,56 @@ class Ui_fen_main(object):
 "    color: #1976d2;\n"
 "}\n"
 "\n"
-"/*===============================================\n"
-"BADGES DE MONTANT - STYLE INSPIR\u00c9 DES BADGES DE STATUT MODERNES\n"
-"===============================================*/\n"
-"\n"
-"QLabel.MontantBadgePositif {\n"
-"    background-color: rgba(34, 197, 94, 0.2);\n"
-"    color: #22c55e;\n"
-"    border: 1px s"
-                        "olid rgba(34, 197, 94, 0.3);\n"
-"    border-radius: 8px;\n"
-"    padding: 3px 6px;\n"
-"    min-width: 55px;\n"
-"    max-width: 105px;\n"
-"    text-align: center;\n"
-"    font-weight: 500;\n"
-"    font-size: 6pt;\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgeNegatif {\n"
-"    background-color: rgba(239, 68, 68, 0.2);\n"
-"    color: #ef4444;\n"
-"    border: 1px solid rgba(239, 68, 68, 0.3);\n"
-"    border-radius: 8px;\n"
-"    padding: 3px 6px;\n"
-"    min-width: 55px;\n"
-"    max-width: 105px;\n"
-"    text-align: center;\n"
-"    font-weight: 500;\n"
-"    font-size: 6pt;\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgeNeutre {\n"
-"    background-color: rgba(107, 114, 128, 0.2);\n"
-"    color: #6b7280;\n"
-"    border: 1px solid rgba(107, 114, 128, 0.3);\n"
-"    border-radius: 8px;\n"
-"    padding: 3px 6px;\n"
-"    min-width: 55px;\n"
-"    max-width: 105px;\n"
-"    text-align: center;\n"
-"    font-weight: 500;\n"
-"    font-size: 6pt;\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgePending {\n"
-"    background-color: rgba(245, 158, 11, 0.2);\n"
-"    color"
-                        ": #f59e0b;\n"
-"    border: 1px solid rgba(245, 158, 11, 0.3);\n"
-"    border-radius: 8px;\n"
-"    padding: 3px 6px;\n"
-"    min-width: 55px;\n"
-"    max-width: 105px;\n"
-"    text-align: center;\n"
-"    font-weight: 500;\n"
-"    font-size: 6pt;\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgeCritique {\n"
-"    background-color: rgba(239, 68, 68, 0.9);\n"
-"    color: white;\n"
-"    border: 1px solid #ef4444;\n"
-"    border-radius: 12px;\n"
-"    padding: 4px 12px;\n"
-"    min-width: 60px;\n"
-"    max-width: 120px;\n"
-"    text-align: center;\n"
-"    font-weight: 500;\n"
-"    font-size: 12px;\n"
-"}\n"
 "\n"
 "/*===============================================\n"
-"VARIANTES AVEC EFFET HOVER (OPTIONNEL)\n"
-"===============================================*/\n"
-"\n"
-"QLabel.MontantBadgePositif:hover {\n"
-"    background-color: rgba(34, 197, 94, 0.3);\n"
-"    border: 1px solid rgba(34, 197, 94, 0.5);\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgeNegatif:hover {\n"
-"    background-color: rgba(239, 68, 68, 0.3);\n"
-"    border: 1px solid rgba(239, "
-                        "68, 68, 0.5);\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgeNeutre:hover {\n"
-"    background-color: rgba(107, 114, 128, 0.3);\n"
-"    border: 1px solid rgba(107, 114, 128, 0.5);\n"
-"}\n"
-"\n"
-"QLabel.MontantBadgePending:hover {\n"
-"    background-color: rgba(245, 158, 11, 0.3);\n"
-"    border: 1px solid rgba(245, 158, 11, 0.5);\n"
-"}\n"
+"               BADGES DE R\u00d4LE - STYLE MODERNE\n"
+"               ===============================================*/\n"
+"            .RoleBadgeAdmin {\n"
+"                background-color: rgba(220, 53, 69, 0.15);\n"
+"                color: #dc3545"
+                        ";\n"
+"                border: 1px solid rgba(220, 53, 69, 0.3);\n"
+"                border-radius: 12px;\n"
+"                padding: 4px 12px;\n"
+"                font-weight: 500;\n"
+"            }\n"
+"            \n"
+"            .RoleBadgeSuperviseur {\n"
+"                background-color: rgba(0, 123, 255, 0.15);\n"
+"                color: #0069d9;\n"
+"                border: 1px solid rgba(0, 123, 255, 0.3);\n"
+"                border-radius: 12px;\n"
+"                padding: 4px 12px;\n"
+"                font-weight: 500;\n"
+"            }\n"
+"            \n"
+"            .RoleBadgeTechnicien {\n"
+"                background-color: rgba(40, 167, 69, 0.15);\n"
+"                color: #28a745;\n"
+"                border: 1px solid rgba(40, 167, 69, 0.3);\n"
+"                border-radius: 12px;\n"
+"                padding: 4px 12px;\n"
+"                font-weight: 500;\n"
+"            }\n"
+"            \n"
+"            .RoleBadgeUtilisateur {\n"
+"                background-color: rgba(108, 117, 125, 0.1"
+                        "5);\n"
+"                color: #6c757d;\n"
+"                border: 1px solid rgba(108, 117, 125, 0.3);\n"
+"                border-radius: 12px;\n"
+"                padding: 4px 12px;\n"
+"                font-weight: 500;\n"
+"            }\n"
+"            \n"
+"            .RoleBadgeDefault {\n"
+"                background-color: rgba(255, 193, 7, 0.15);\n"
+"                color: #ffc107;\n"
+"                border: 1px solid rgba(255, 193, 7, 0.3);\n"
+"                border-radius: 12px;\n"
+"                padding: 4px 12px;\n"
+"                font-weight: 500;\n"
+"            }\n"
 "\n"
 "\n"
 "/* Style pour les boutons actifs */\n"
@@ -860,7 +815,8 @@ class Ui_fen_main(object):
 "/* Style pour les boutons normaux */\n"
 "#BarreLaterale QToolButton {\n"
 "    background-color: transparent;\n"
-"    border: none;\n"
+""
+                        "    border: none;\n"
 "    color: rgb(73, 80, 87);\n"
 "    padding: 4px 4px;\n"
 "    text-align: left;\n"
@@ -1387,9 +1343,7 @@ class Ui_fen_main(object):
         self.page_equipement = QWidget()
         self.page_equipement.setObjectName(u"page_equipement")
         self.verticalLayout_5 = QVBoxLayout(self.page_equipement)
-        self.verticalLayout_5.setSpacing(2)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(2, 2, 2, 2)
         self.zone_haut_fixe_btn_ajout_equipement = QWidget(self.page_equipement)
         self.zone_haut_fixe_btn_ajout_equipement.setObjectName(u"zone_haut_fixe_btn_ajout_equipement")
         sizePolicy1.setHeightForWidth(self.zone_haut_fixe_btn_ajout_equipement.sizePolicy().hasHeightForWidth())
@@ -1421,7 +1375,15 @@ class Ui_fen_main(object):
 
         self.verticalLayout_5.addWidget(self.zone_haut_fixe_btn_ajout_equipement)
 
-        self.tableWidget_equipement = QTableWidget(self.page_equipement)
+        self.widget_12 = QWidget(self.page_equipement)
+        self.widget_12.setObjectName(u"widget_12")
+        self.horizontalLayout_11 = QHBoxLayout(self.widget_12)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.horizontalSpacer = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_11.addItem(self.horizontalSpacer)
+
+        self.tableWidget_equipement = QTableWidget(self.widget_12)
         self.tableWidget_equipement.setObjectName(u"tableWidget_equipement")
         self.tableWidget_equipement.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_equipement.setShowGrid(False)
@@ -1431,15 +1393,20 @@ class Ui_fen_main(object):
         self.tableWidget_equipement.verticalHeader().setVisible(False)
         self.tableWidget_equipement.verticalHeader().setProperty(u"showSortIndicator", True)
 
-        self.verticalLayout_5.addWidget(self.tableWidget_equipement)
+        self.horizontalLayout_11.addWidget(self.tableWidget_equipement)
+
+        self.horizontalSpacer_2 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_11.addItem(self.horizontalSpacer_2)
+
+
+        self.verticalLayout_5.addWidget(self.widget_12)
 
         self.stackedWidget.addWidget(self.page_equipement)
         self.page_tickets = QWidget()
         self.page_tickets.setObjectName(u"page_tickets")
         self.verticalLayout_17 = QVBoxLayout(self.page_tickets)
-        self.verticalLayout_17.setSpacing(2)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.verticalLayout_17.setContentsMargins(2, 2, 2, 2)
         self.zone_haut_fixe_btn_ajout_tickets = QWidget(self.page_tickets)
         self.zone_haut_fixe_btn_ajout_tickets.setObjectName(u"zone_haut_fixe_btn_ajout_tickets")
         sizePolicy1.setHeightForWidth(self.zone_haut_fixe_btn_ajout_tickets.sizePolicy().hasHeightForWidth())
@@ -1469,7 +1436,15 @@ class Ui_fen_main(object):
 
         self.verticalLayout_17.addWidget(self.zone_haut_fixe_btn_ajout_tickets)
 
-        self.tableWidget_tickets = QTableWidget(self.page_tickets)
+        self.widget_14 = QWidget(self.page_tickets)
+        self.widget_14.setObjectName(u"widget_14")
+        self.horizontalLayout_12 = QHBoxLayout(self.widget_14)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalSpacer_3 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_12.addItem(self.horizontalSpacer_3)
+
+        self.tableWidget_tickets = QTableWidget(self.widget_14)
         self.tableWidget_tickets.setObjectName(u"tableWidget_tickets")
         self.tableWidget_tickets.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_tickets.setShowGrid(False)
@@ -1479,15 +1454,20 @@ class Ui_fen_main(object):
         self.tableWidget_tickets.verticalHeader().setVisible(False)
         self.tableWidget_tickets.verticalHeader().setProperty(u"showSortIndicator", True)
 
-        self.verticalLayout_17.addWidget(self.tableWidget_tickets)
+        self.horizontalLayout_12.addWidget(self.tableWidget_tickets)
+
+        self.horizontalSpacer_4 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_12.addItem(self.horizontalSpacer_4)
+
+
+        self.verticalLayout_17.addWidget(self.widget_14)
 
         self.stackedWidget.addWidget(self.page_tickets)
         self.page_utilisateurs = QWidget()
         self.page_utilisateurs.setObjectName(u"page_utilisateurs")
         self.verticalLayout_18 = QVBoxLayout(self.page_utilisateurs)
-        self.verticalLayout_18.setSpacing(2)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.verticalLayout_18.setContentsMargins(2, 2, 2, 2)
         self.zone_haut_fixe_btn_ajout_utilisateur = QWidget(self.page_utilisateurs)
         self.zone_haut_fixe_btn_ajout_utilisateur.setObjectName(u"zone_haut_fixe_btn_ajout_utilisateur")
         sizePolicy1.setHeightForWidth(self.zone_haut_fixe_btn_ajout_utilisateur.sizePolicy().hasHeightForWidth())
@@ -1517,7 +1497,15 @@ class Ui_fen_main(object):
 
         self.verticalLayout_18.addWidget(self.zone_haut_fixe_btn_ajout_utilisateur)
 
-        self.tableWidget_utilisateur = QTableWidget(self.page_utilisateurs)
+        self.widget_16 = QWidget(self.page_utilisateurs)
+        self.widget_16.setObjectName(u"widget_16")
+        self.horizontalLayout_13 = QHBoxLayout(self.widget_16)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalSpacer_5 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_5)
+
+        self.tableWidget_utilisateur = QTableWidget(self.widget_16)
         self.tableWidget_utilisateur.setObjectName(u"tableWidget_utilisateur")
         self.tableWidget_utilisateur.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_utilisateur.setShowGrid(False)
@@ -1527,7 +1515,14 @@ class Ui_fen_main(object):
         self.tableWidget_utilisateur.verticalHeader().setVisible(False)
         self.tableWidget_utilisateur.verticalHeader().setProperty(u"showSortIndicator", True)
 
-        self.verticalLayout_18.addWidget(self.tableWidget_utilisateur)
+        self.horizontalLayout_13.addWidget(self.tableWidget_utilisateur)
+
+        self.horizontalSpacer_6 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_6)
+
+
+        self.verticalLayout_18.addWidget(self.widget_16)
 
         self.stackedWidget.addWidget(self.page_utilisateurs)
 

@@ -1,11 +1,9 @@
-# Nom du fichier : fen_main.py
-
 # -*- coding: utf-8 -*-
 import sys
-# On ajoute QWidget pour créer notre calque
-from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem, QWidget, QLabel
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QColor, QFont, QFontDatabase
 
-# --- Imports à jour ---
 from ui_form import Ui_fen_main
 from NavigationManager import NavigationManager
 from GestionBD import GestionBD
@@ -84,7 +82,6 @@ class fen_main(QMainWindow):
             # On le supprime pour libérer la mémoire
             self.overlay.deleteLater()
 
-
     def ajouter_equipement(self):
         print("Bouton ajouter équipement cliqué - À implémenter.")
 
@@ -97,6 +94,61 @@ class fen_main(QMainWindow):
             self.ui.tableWidget_equipement.resizeColumnsToContents()
         except Exception as e:
             QMessageBox.critical(self, "Erreur", f"Erreur MàJ tableau équipements :\n{str(e)}")
+
+    def creer_badge_role(self, role):
+        """Crée un badge stylisé pour le rôle de l'utilisateur"""
+        badge = QLabel(role)
+        badge.setAlignment(Qt.AlignCenter)
+        badge.setMinimumHeight(30)
+        badge.setMaximumHeight(30)
+
+        # Styles basés sur le rôle
+        styles = {
+            "Admin": """
+                background-color: rgba(220, 53, 69, 0.15);
+                color: #dc3545;
+                border: 1px solid rgba(220, 53, 69, 0.3);
+                border-radius: 12px;
+                padding: 4px 12px;
+                font-weight: 500;
+            """,
+            "Superviseur": """
+                background-color: rgba(0, 123, 255, 0.15);
+                color: #0069d9;
+                border: 1px solid rgba(0, 123, 255, 0.3);
+                border-radius: 12px;
+                padding: 4px 12px;
+                font-weight: 500;
+            """,
+            "Technicien": """
+                background-color: rgba(40, 167, 69, 0.15);
+                color: #28a745;
+                border: 1px solid rgba(40, 167, 69, 0.3);
+                border-radius: 12px;
+                padding: 4px 12px;
+                font-weight: 500;
+            """,
+            "Utilisateur": """
+                background-color: rgba(108, 117, 125, 0.15);
+                color: #6c757d;
+                border: 1px solid rgba(108, 117, 125, 0.3);
+                border-radius: 12px;
+                padding: 4px 12px;
+                font-weight: 500;
+            """
+        }
+
+        # Appliquer le style approprié ou un style par défaut
+        badge.setStyleSheet(styles.get(role, """
+            background-color: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-weight: 500;
+        """))
+
+        return badge
 
     def actualiser_tableau_utilisateurs(self):
         """Met à jour le QTableWidget avec la liste des utilisateurs de la BDD."""
@@ -114,7 +166,13 @@ class fen_main(QMainWindow):
                 table.setItem(row_num, 0, QTableWidgetItem(str(user['id'])))
                 table.setItem(row_num, 1, QTableWidgetItem(user['nom']))
                 table.setItem(row_num, 2, QTableWidgetItem(user['email']))
-                table.setItem(row_num, 3, QTableWidgetItem(user['role']))
+
+                # Créer et ajouter le badge pour le rôle
+                badge = self.creer_badge_role(user['role'])
+                table.setCellWidget(row_num, 3, badge)
+
+                # Ajuster la hauteur de la ligne pour le badge
+                table.setRowHeight(row_num, 40)
 
             table.resizeColumnsToContents()
         except Exception as e:
