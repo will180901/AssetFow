@@ -17,15 +17,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QFrame,
     QGroupBox, QHBoxLayout, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 import rc_icones
 
 class Ui_fen_enreg_utilisateur(object):
     def setupUi(self, fen_enreg_utilisateur):
         if not fen_enreg_utilisateur.objectName():
             fen_enreg_utilisateur.setObjectName(u"fen_enreg_utilisateur")
-        fen_enreg_utilisateur.resize(383, 383)
-        fen_enreg_utilisateur.setMinimumSize(QSize(383, 383))
+        fen_enreg_utilisateur.resize(520, 483)
+        fen_enreg_utilisateur.setMinimumSize(QSize(0, 0))
         fen_enreg_utilisateur.setStyleSheet(u"\n"
 "*{\n"
 "\n"
@@ -48,6 +49,12 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "		border:none ;\n"
 "\n"
+"}\n"
+"QGroupBox::title {\n"
+"    color: #4a4a4a; /* \u00c9quivalent hexad\u00e9cimal de rgb(74,74,74) */\n"
+"    font-weight: 350;\n"
+"    font-size: 12pt;\n"
+"    font-family: \"Bahnschrift\";\n"
 "}\n"
 "\n"
 "#label_affiche_erreur_validation{\n"
@@ -72,7 +79,8 @@ class Ui_fen_enreg_utilisateur(object):
 "#label_titre_fenetre{\n"
 "	\n"
 "		\n"
-"	font: 600 12pt \"Bahnschrift\";\n"
+"	\n"
+"	font: 700 18pt \"Bahnschrift\";\n"
 "\n"
 "}\n"
 "\n"
@@ -81,7 +89,8 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "		background-color: rgb(255, 255, 255);\n"
 "    border-radius: 4px;\n"
-"    border: 1px solid rgb(229, 234, 239);\n"
+"    border: 1px solid rgb(229"
+                        ", 234, 239);\n"
 "}\n"
 "\n"
 "\n"
@@ -91,8 +100,7 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "\n"
 "QPushButton {\n"
-"    bac"
-                        "kground-color: rgb(13, 110, 253);\n"
+"    background-color: rgb(13, 110, 253);\n"
 "    padding: 6px 12px;\n"
 "    border-radius: 4px;\n"
 "    border: none;\n"
@@ -132,15 +140,16 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "/*===============================================\n"
 "   \u00c9L\u00c9MENTS DE FORMULAIRE\n"
-"   ===============================================*/\n"
+"   ====="
+                        "==========================================*/\n"
 "\n"
 "QLineEdit, QTextEdit {\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    border: 1px solid #ced4da;\n"
 "    border-radius: 4px;\n"
-"    padding: 6"
-                        "px;\n"
-"    color: #495057;\n"
+"    padding: 6px;\n"
+"    \n"
+"	color: rgb(100, 100, 100);\n"
 "}\n"
 "\n"
 "QLineEdit:hover, QTextEdit:hover {\n"
@@ -171,7 +180,8 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "QComboBox:hover {\n"
 "    border-color: #0d6efd;\n"
-"    background-color: rgb(248, 249, 250);\n"
+"  "
+                        "  background-color: rgb(248, 249, 250);\n"
 "}\n"
 "\n"
 "QComboBox:focus {\n"
@@ -182,8 +192,7 @@ class Ui_fen_enreg_utilisateur(object):
 "QComboBox:pressed {\n"
 "    background-color: rgb(240, 244, 248);\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "QComboBox::drop-down {\n"
 "    subcontrol-origin: padding;\n"
 "    subcontrol-position: top right;\n"
@@ -215,7 +224,8 @@ class Ui_fen_enreg_utilisateur(object):
 "QComboBox QAbstractItemView {\n"
 "    border: 1px solid #0d6efd;\n"
 "    border-radius: 4px;\n"
-"    background-color: rgb(255, 255, 255);\n"
+"   "
+                        " background-color: rgb(255, 255, 255);\n"
 "    selection-background-color: #0d6efd;\n"
 "    selection-color: white;\n"
 "    padding: 2px;\n"
@@ -223,8 +233,7 @@ class Ui_fen_enreg_utilisateur(object):
 "    show-decoration-selected: 1;\n"
 "}\n"
 "\n"
-"QComboBox"
-                        " QAbstractItemView::item {\n"
+"QComboBox QAbstractItemView::item {\n"
 "    height: 28px;\n"
 "    padding: 0 8px;\n"
 "    border-bottom: 1px solid rgba(229, 234, 239, 0.5);\n"
@@ -253,7 +262,8 @@ class Ui_fen_enreg_utilisateur(object):
 "    background-color: rgb(255, 255, 255);\n"
 "    border: 1px solid #ced4da;\n"
 "    border-radius: 4px;\n"
-"    padding: 6px 8px;\n"
+"    paddin"
+                        "g: 6px 8px;\n"
 "    color: #495057;\n"
 "    font-size: 13px;\n"
 "    min-height: 18px;\n"
@@ -262,8 +272,7 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "QDoubleSpinBox:hover, QSpinBox:hover {\n"
 "    border-color: #0d6efd;\n"
-" "
-                        "   background-color: rgb(248, 249, 250);\n"
+"    background-color: rgb(248, 249, 250);\n"
 "}\n"
 "\n"
 "QDoubleSpinBox:focus, QSpinBox:focus {\n"
@@ -291,7 +300,8 @@ class Ui_fen_enreg_utilisateur(object):
 "}\n"
 "\n"
 "QDoubleSpinBox::down-button, QSpinBox::down-button {\n"
-"    subcontrol-origin: border;\n"
+"    subcontrol-origin: "
+                        "border;\n"
 "    subcontrol-position: bottom right;\n"
 "    width: 18px;\n"
 "    height: 10px;\n"
@@ -301,8 +311,7 @@ class Ui_fen_enreg_utilisateur(object):
 "    margin-right: 1px;\n"
 "}\n"
 "\n"
-""
-                        "QDoubleSpinBox::down-button:hover, QSpinBox::down-button:hover {\n"
+"QDoubleSpinBox::down-button:hover, QSpinBox::down-button:hover {\n"
 "    background-color: rgba(229, 234, 239, 0.3);\n"
 "}\n"
 "\n"
@@ -327,15 +336,15 @@ class Ui_fen_enreg_utilisateur(object):
 "}\n"
 "\n"
 "QDoubleSpinBox::down-arrow:hover, QSpinBox::down-arrow:hover {\n"
-"    image: url(:/icon_noir/chevron-down.svg);\n"
+"    image: url(:/icon_noir/chevron-"
+                        "down.svg);\n"
 "}\n"
 "\n"
 "QDoubleSpinBox::up-arrow:disabled, QSpinBox::up-arrow:disabled {\n"
 "    image: url(:/icon_gris/chevron-up-disabled.svg);\n"
 "}\n"
 "\n"
-"QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:disa"
-                        "bled {\n"
+"QDoubleSpinBox::down-arrow:disabled, QSpinBox::down-arrow:disabled {\n"
 "    image: url(:/icon_gris/chevron-down-disabled.svg);\n"
 "}\n"
 "\n"
@@ -367,7 +376,8 @@ class Ui_fen_enreg_utilisateur(object):
 "    subcontrol-origin: padding;\n"
 "    subcontrol-position: top right;\n"
 "    width: 20px;\n"
-"    border: none;\n"
+"    border: none"
+                        ";\n"
 "    border-left: 1px solid #ced4da;\n"
 "    border-top-right-radius: 4px;\n"
 "    border-bottom-right-radius: 4px;\n"
@@ -375,8 +385,7 @@ class Ui_fen_enreg_utilisateur(object):
 "}\n"
 "\n"
 "QDateEdit::drop-down:hover {\n"
-"    "
-                        "background-color: rgba(229, 234, 239, 0.6);\n"
+"    background-color: rgba(229, 234, 239, 0.6);\n"
 "}\n"
 "\n"
 "QDateEdit::down-arrow {\n"
@@ -407,14 +416,14 @@ class Ui_fen_enreg_utilisateur(object):
 "    spacing: 4px;\n"
 "}\n"
 "\n"
-"#mes_onglets_page_transaction > QTabBar::tab {\n"
+"#mes_onglets_page_transaction > Q"
+                        "TabBar::tab {\n"
 "    background-color: rgba(229, 234, 239, 0.5);\n"
 "    border: 1px solid rgb(229, 234, 239);\n"
 "    border-bottom: none;\n"
 "    border-radius: 4px 4px 0 0;\n"
 "    padding: 8px 16px;\n"
-"    margin-right:"
-                        " 2px;\n"
+"    margin-right: 2px;\n"
 "    min-width: 100px;\n"
 "    color: rgb(108, 117, 125);\n"
 "}\n"
@@ -442,13 +451,13 @@ class Ui_fen_enreg_utilisateur(object):
 "    border-radius: 3px;\n"
 "    margin: 4px;\n"
 "}\n"
-"\n"
+""
+                        "\n"
 "#mes_onglets_page_transaction > QTabBar QToolButton::right-arrow,\n"
 "#mes_onglets_page_transaction > QTabBar QToolButton::left-arrow {\n"
 "    image: url(:/icon_gris/chevron-right.svg);\n"
 "    width: 12px;\n"
-"    heig"
-                        "ht: 12px;\n"
+"    height: 12px;\n"
 "}\n"
 "\n"
 "/*===============================================\n"
@@ -480,7 +489,8 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "QScrollBar::handle:vertical:hover,\n"
 "QScrollBar::handle:horizontal:hover {\n"
-"    background-color: rgba(13, 110, 253, 0.6);\n"
+"    backgroun"
+                        "d-color: rgba(13, 110, 253, 0.6);\n"
 "    opacity: 1;\n"
 "}\n"
 "\n"
@@ -489,8 +499,7 @@ class Ui_fen_enreg_utilisateur(object):
 "    background-color: rgba(8, 77, 178, 0.8);\n"
 "}\n"
 "\n"
-"QScrollBar:"
-                        ":add-line:vertical,\n"
+"QScrollBar::add-line:vertical,\n"
 "QScrollBar::sub-line:vertical,\n"
 "QScrollBar::add-line:horizontal,\n"
 "QScrollBar::sub-line:horizontal {\n"
@@ -519,7 +528,8 @@ class Ui_fen_enreg_utilisateur(object):
 "Line {\n"
 "    background-color: rgb(229, 234, 239);\n"
 "    border-radius: 1px;\n"
-"    border: 1px solid rgb(229, 234, 239);\n"
+"    border: 1px solid rgb(229, 234,"
+                        " 239);\n"
 "    width: 1px;\n"
 "}\n"
 "\n"
@@ -530,8 +540,7 @@ class Ui_fen_enreg_utilisateur(object):
 "    outline: none;\n"
 "}\n"
 "\n"
-"/*================"
-                        "===============================\n"
+"/*===============================================\n"
 "   TABLEAUX - STYLE AM\u00c9LIOR\u00c9 AVEC CELLULES PLUS GRANDES\n"
 "   ===============================================*/\n"
 "\n"
@@ -557,7 +566,8 @@ class Ui_fen_enreg_utilisateur(object):
 "    font-size: 9pt;\n"
 "    text-align: left;\n"
 "    min-height: 35px;\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "QTableWidget QHeaderView::vertical::section {\n"
 "    background-color: #ffffff;\n"
@@ -567,8 +577,7 @@ class Ui_fen_enreg_utilisateur(object):
 "\n"
 "QTableWidget::item {\n"
 "    padding: 6px 4px;\n"
-"    border-botto"
-                        "m: 1px solid #e0e0e0;\n"
+"    border-bottom: 1px solid #e0e0e0;\n"
 "    border-right: none;\n"
 "    min-height: 40px;\n"
 "    font-size: 7pt;\n"
@@ -597,7 +606,8 @@ class Ui_fen_enreg_utilisateur(object):
 "    max-width: 105px;\n"
 "    text-align: center;\n"
 "    font-weight: 500;\n"
-"    font-size: 6pt;\n"
+"    fo"
+                        "nt-size: 6pt;\n"
 "}\n"
 "\n"
 "QLabel.MontantBadgeNegatif {\n"
@@ -605,8 +615,7 @@ class Ui_fen_enreg_utilisateur(object):
 "    color: #ef4444;\n"
 "    border: 1px solid rgba(239, 68, 68, 0.3);\n"
 "    border-radius: 8px;\n"
-"    pad"
-                        "ding: 3px 6px;\n"
+"    padding: 3px 6px;\n"
 "    min-width: 55px;\n"
 "    max-width: 105px;\n"
 "    text-align: center;\n"
@@ -636,7 +645,8 @@ class Ui_fen_enreg_utilisateur(object):
 "    min-width: 55px;\n"
 "    max-width: 105px;\n"
 "    text-align: center;\n"
-"    font-weight: 500;\n"
+""
+                        "    font-weight: 500;\n"
 "    font-size: 6pt;\n"
 "}\n"
 "\n"
@@ -644,8 +654,7 @@ class Ui_fen_enreg_utilisateur(object):
 "    background-color: rgba(239, 68, 68, 0.9);\n"
 "    color: white;\n"
 "    border: 1px solid #ef4444;\n"
-"    border-radius:"
-                        " 12px;\n"
+"    border-radius: 12px;\n"
 "    padding: 4px 12px;\n"
 "    min-width: 60px;\n"
 "    max-width: 120px;\n"
@@ -673,15 +682,15 @@ class Ui_fen_enreg_utilisateur(object):
 "    border: 1px solid rgba(107, 114, 128, 0.5);\n"
 "}\n"
 "\n"
-"QLabel.MontantBadgePending:hover {\n"
+"QLabel.MontantBad"
+                        "gePending:hover {\n"
 "    background-color: rgba(245, 158, 11, 0.3);\n"
 "    border: 1px solid rgba(245, 158, 11, 0.5);\n"
 "}\n"
 "\n"
 "\n"
 "/* Style pour les boutons actifs */\n"
-"#BarreLaterale QToolButton[active=\"true"
-                        "\"] {\n"
+"#BarreLaterale QToolButton[active=\"true\"] {\n"
 "    background-color: #1a3c6c;\n"
 "    color: white;\n"
 "    padding: 4px 4px;\n"
@@ -699,8 +708,9 @@ class Ui_fen_enreg_utilisateur(object):
 "    border-radius: 4px;\n"
 "}")
         self.verticalLayout_6 = QVBoxLayout(fen_enreg_utilisateur)
+        self.verticalLayout_6.setSpacing(10)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(4, 4, 4, 4)
+        self.verticalLayout_6.setContentsMargins(10, 10, 10, 10)
         self.widget = QWidget(fen_enreg_utilisateur)
         self.widget.setObjectName(u"widget")
         self.verticalLayout = QVBoxLayout(self.widget)
@@ -727,10 +737,14 @@ class Ui_fen_enreg_utilisateur(object):
 
         self.verticalLayout_6.addWidget(self.line)
 
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+
+        self.verticalLayout_6.addItem(self.verticalSpacer)
+
         self.groupBox = QGroupBox(fen_enreg_utilisateur)
         self.groupBox.setObjectName(u"groupBox")
         self.verticalLayout_2 = QVBoxLayout(self.groupBox)
-        self.verticalLayout_2.setSpacing(20)
+        self.verticalLayout_2.setSpacing(2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(2, 15, 2, 2)
         self.lineEdit_nom_complet_utilisateur = QLineEdit(self.groupBox)
@@ -763,7 +777,7 @@ class Ui_fen_enreg_utilisateur(object):
         self.verticalLayout_7.setContentsMargins(2, 15, 2, 2)
         self.lineEdit_mot_de_passe = QLineEdit(self.groupBox_4)
         self.lineEdit_mot_de_passe.setObjectName(u"lineEdit_mot_de_passe")
-        self.lineEdit_mot_de_passe.setEchoMode(QLineEdit.EchoMode.PasswordEchoOnEdit)
+        self.lineEdit_mot_de_passe.setEchoMode(QLineEdit.EchoMode.Password)
 
         self.verticalLayout_7.addWidget(self.lineEdit_mot_de_passe)
 
@@ -788,7 +802,7 @@ class Ui_fen_enreg_utilisateur(object):
         self.groupBox_3 = QGroupBox(fen_enreg_utilisateur)
         self.groupBox_3.setObjectName(u"groupBox_3")
         self.verticalLayout_4 = QVBoxLayout(self.groupBox_3)
-        self.verticalLayout_4.setSpacing(20)
+        self.verticalLayout_4.setSpacing(2)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(2, 15, 2, 2)
         self.comboBox_role_utilisateur = QComboBox(self.groupBox_3)
@@ -821,14 +835,14 @@ class Ui_fen_enreg_utilisateur(object):
 
         self.horizontalLayout.addWidget(self.btn_annuler_ajout_utilisateur)
 
-        self.pushButton = QPushButton(self.widget_2)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.btn_creer_ajout_utilisateur = QPushButton(self.widget_2)
+        self.btn_creer_ajout_utilisateur.setObjectName(u"btn_creer_ajout_utilisateur")
+        self.btn_creer_ajout_utilisateur.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u":/icon_blanc/plus-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pushButton.setIcon(icon)
+        self.btn_creer_ajout_utilisateur.setIcon(icon)
 
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.horizontalLayout.addWidget(self.btn_creer_ajout_utilisateur)
 
 
         self.verticalLayout_5.addWidget(self.widget_2, 0, Qt.AlignmentFlag.AlignRight)
@@ -844,7 +858,7 @@ class Ui_fen_enreg_utilisateur(object):
 
     def retranslateUi(self, fen_enreg_utilisateur):
         fen_enreg_utilisateur.setWindowTitle(QCoreApplication.translate("fen_enreg_utilisateur", u"Dialog", None))
-        self.label_titre_fenetre.setText(QCoreApplication.translate("fen_enreg_utilisateur", u"Ajouter un Utilisateur", None))
+        self.label_titre_fenetre.setText(QCoreApplication.translate("fen_enreg_utilisateur", u"Ajouter un utilisateur", None))
         self.label_description_fenetre.setText(QCoreApplication.translate("fen_enreg_utilisateur", u"Cr\u00e9er un nouveau compte utilisateur et assign\u00e9 un r\u00f4le", None))
         self.groupBox.setTitle(QCoreApplication.translate("fen_enreg_utilisateur", u"Nom complet", None))
         self.lineEdit_nom_complet_utilisateur.setInputMask("")
@@ -858,6 +872,6 @@ class Ui_fen_enreg_utilisateur(object):
         self.groupBox_3.setTitle(QCoreApplication.translate("fen_enreg_utilisateur", u"R\u00f4le ", None))
         self.label_affiche_erreur_validation.setText("")
         self.btn_annuler_ajout_utilisateur.setText(QCoreApplication.translate("fen_enreg_utilisateur", u"Annuler", None))
-        self.pushButton.setText(QCoreApplication.translate("fen_enreg_utilisateur", u"Cr\u00e9er", None))
+        self.btn_creer_ajout_utilisateur.setText(QCoreApplication.translate("fen_enreg_utilisateur", u"Cr\u00e9er", None))
     # retranslateUi
 

@@ -10,6 +10,7 @@
         "form.ui",
         "icones.qrc",
         "ui_form.py",
-        "ui_fen_enreg_utilisateur.py"
+        "ui_fen_enreg_utilisateur.py",
+        "DialogEnregUtilisateur.py"
     ]
 }
