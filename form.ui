@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>801</width>
+    <width>1027</width>
     <height>600</height>
    </rect>
   </property>
@@ -1334,6 +1334,13 @@ QTableWidget::item:selected {
                 </widget>
                </item>
                <item>
+                <widget class="Line" name="line_6">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QWidget" name="widget_6" native="true">
                  <property name="minimumSize">
                   <size>
@@ -1354,85 +1361,6 @@ QTableWidget::item:selected {
                   <property name="spacing">
                    <number>2</number>
                   </property>
-                  <item row="0" column="0">
-                   <widget class="QWidget" name="carte_equipement" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>241</width>
-                      <height>121</height>
-                     </size>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_7">
-                     <property name="spacing">
-                      <number>2</number>
-                     </property>
-                     <property name="leftMargin">
-                      <number>2</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>2</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>2</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>2</number>
-                     </property>
-                     <item>
-                      <widget class="QWidget" name="widget_8" native="true">
-                       <layout class="QHBoxLayout" name="horizontalLayout_6">
-                        <item alignment="Qt::AlignmentFlag::AlignLeft">
-                         <widget class="QLabel" name="label_equipement_totaux">
-                          <property name="text">
-                           <string>Equipements Totaux</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignVCenter">
-                         <widget class="QLabel" name="label">
-                          <property name="minimumSize">
-                           <size>
-                            <width>20</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">border-image: url(:/icon_bleu/monitor.svg);</string>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item alignment="Qt::AlignmentFlag::AlignLeft">
-                      <widget class="QLabel" name="label_nombre_equipements">
-                       <property name="minimumSize">
-                        <size>
-                         <width>50</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>7</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignmentFlag::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_description_carte">
-                       <property name="text">
-                        <string>Total des Equipements dans le parc </string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
                   <item row="0" column="1">
                    <widget class="QWidget" name="carte_tickets" native="true">
                     <property name="minimumSize">
@@ -1585,6 +1513,85 @@ QTableWidget::item:selected {
                       <widget class="QLabel" name="label_description_carte_3">
                        <property name="text">
                         <string>Tickets actuellement traités</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QWidget" name="carte_equipement" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>241</width>
+                      <height>121</height>
+                     </size>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <property name="spacing">
+                      <number>2</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>2</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>2</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>2</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>2</number>
+                     </property>
+                     <item>
+                      <widget class="QWidget" name="widget_8" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_6">
+                        <item alignment="Qt::AlignmentFlag::AlignLeft">
+                         <widget class="QLabel" name="label_equipement_totaux">
+                          <property name="text">
+                           <string>Equipements Totaux</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignVCenter">
+                         <widget class="QLabel" name="label">
+                          <property name="minimumSize">
+                           <size>
+                            <width>20</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-image: url(:/icon_bleu/monitor.svg);</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item alignment="Qt::AlignmentFlag::AlignLeft">
+                      <widget class="QLabel" name="label_nombre_equipements">
+                       <property name="minimumSize">
+                        <size>
+                         <width>50</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>7</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignmentFlag::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_description_carte">
+                       <property name="text">
+                        <string>Total des Equipements dans le parc </string>
                        </property>
                       </widget>
                      </item>
@@ -1892,6 +1899,13 @@ QTableWidget::item:selected {
             </widget>
            </item>
            <item>
+            <widget class="Line" name="line_7">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QWidget" name="widget_12" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout_11">
               <item>
@@ -1912,6 +1926,12 @@ QTableWidget::item:selected {
               </item>
               <item>
                <widget class="QTableWidget" name="tableWidget_equipement">
+                <property name="minimumSize">
+                 <size>
+                  <width>665</width>
+                  <height>489</height>
+                 </size>
+                </property>
                 <property name="selectionBehavior">
                  <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
                 </property>
@@ -2031,6 +2051,13 @@ QTableWidget::item:selected {
             </widget>
            </item>
            <item>
+            <widget class="Line" name="line_5">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QWidget" name="widget_14" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout_12">
               <item>
@@ -2051,6 +2078,12 @@ QTableWidget::item:selected {
               </item>
               <item>
                <widget class="QTableWidget" name="tableWidget_tickets">
+                <property name="minimumSize">
+                 <size>
+                  <width>665</width>
+                  <height>489</height>
+                 </size>
+                </property>
                 <property name="selectionBehavior">
                  <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
                 </property>
@@ -2170,6 +2203,13 @@ QTableWidget::item:selected {
             </widget>
            </item>
            <item>
+            <widget class="Line" name="line_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QWidget" name="widget_16" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout_13">
               <item>
@@ -2190,6 +2230,12 @@ QTableWidget::item:selected {
               </item>
               <item>
                <widget class="QTableWidget" name="tableWidget_utilisateur">
+                <property name="minimumSize">
+                 <size>
+                  <width>665</width>
+                  <height>489</height>
+                 </size>
+                </property>
                 <property name="selectionBehavior">
                  <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
                 </property>

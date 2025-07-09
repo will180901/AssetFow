@@ -26,7 +26,7 @@ class Ui_fen_main(object):
     def setupUi(self, fen_main):
         if not fen_main.objectName():
             fen_main.setObjectName(u"fen_main")
-        fen_main.resize(801, 600)
+        fen_main.resize(1027, 600)
         fen_main.setStyleSheet(u"\n"
 "*{\n"
 "\n"
@@ -1070,6 +1070,13 @@ class Ui_fen_main(object):
 
         self.verticalLayout_16.addWidget(self.widget_3)
 
+        self.line_6 = QFrame(self.scrollAreaWidgetContents)
+        self.line_6.setObjectName(u"line_6")
+        self.line_6.setFrameShape(QFrame.Shape.HLine)
+        self.line_6.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_16.addWidget(self.line_6)
+
         self.widget_6 = QWidget(self.scrollAreaWidgetContents)
         self.widget_6.setObjectName(u"widget_6")
         self.widget_6.setMinimumSize(QSize(561, 141))
@@ -1077,47 +1084,6 @@ class Ui_fen_main(object):
         self.gridLayout.setSpacing(2)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(-1, 2, 2, 2)
-        self.carte_equipement = QWidget(self.widget_6)
-        self.carte_equipement.setObjectName(u"carte_equipement")
-        self.carte_equipement.setMinimumSize(QSize(241, 121))
-        self.verticalLayout_7 = QVBoxLayout(self.carte_equipement)
-        self.verticalLayout_7.setSpacing(2)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(2, 2, 2, 2)
-        self.widget_8 = QWidget(self.carte_equipement)
-        self.widget_8.setObjectName(u"widget_8")
-        self.horizontalLayout_6 = QHBoxLayout(self.widget_8)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.label_equipement_totaux = QLabel(self.widget_8)
-        self.label_equipement_totaux.setObjectName(u"label_equipement_totaux")
-
-        self.horizontalLayout_6.addWidget(self.label_equipement_totaux, 0, Qt.AlignmentFlag.AlignLeft)
-
-        self.label = QLabel(self.widget_8)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(20, 20))
-        self.label.setStyleSheet(u"border-image: url(:/icon_bleu/monitor.svg);")
-
-        self.horizontalLayout_6.addWidget(self.label, 0, Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignVCenter)
-
-
-        self.verticalLayout_7.addWidget(self.widget_8)
-
-        self.label_nombre_equipements = QLabel(self.carte_equipement)
-        self.label_nombre_equipements.setObjectName(u"label_nombre_equipements")
-        self.label_nombre_equipements.setMinimumSize(QSize(50, 0))
-        self.label_nombre_equipements.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_7.addWidget(self.label_nombre_equipements, 0, Qt.AlignmentFlag.AlignLeft)
-
-        self.label_description_carte = QLabel(self.carte_equipement)
-        self.label_description_carte.setObjectName(u"label_description_carte")
-
-        self.verticalLayout_7.addWidget(self.label_description_carte)
-
-
-        self.gridLayout.addWidget(self.carte_equipement, 0, 0, 1, 1)
-
         self.carte_tickets = QWidget(self.widget_6)
         self.carte_tickets.setObjectName(u"carte_tickets")
         self.carte_tickets.setMinimumSize(QSize(241, 121))
@@ -1199,6 +1165,47 @@ class Ui_fen_main(object):
 
 
         self.gridLayout.addWidget(self.carte_equipement_3, 0, 2, 1, 1)
+
+        self.carte_equipement = QWidget(self.widget_6)
+        self.carte_equipement.setObjectName(u"carte_equipement")
+        self.carte_equipement.setMinimumSize(QSize(241, 121))
+        self.verticalLayout_7 = QVBoxLayout(self.carte_equipement)
+        self.verticalLayout_7.setSpacing(2)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(2, 2, 2, 2)
+        self.widget_8 = QWidget(self.carte_equipement)
+        self.widget_8.setObjectName(u"widget_8")
+        self.horizontalLayout_6 = QHBoxLayout(self.widget_8)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_equipement_totaux = QLabel(self.widget_8)
+        self.label_equipement_totaux.setObjectName(u"label_equipement_totaux")
+
+        self.horizontalLayout_6.addWidget(self.label_equipement_totaux, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label = QLabel(self.widget_8)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(20, 20))
+        self.label.setStyleSheet(u"border-image: url(:/icon_bleu/monitor.svg);")
+
+        self.horizontalLayout_6.addWidget(self.label, 0, Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignVCenter)
+
+
+        self.verticalLayout_7.addWidget(self.widget_8)
+
+        self.label_nombre_equipements = QLabel(self.carte_equipement)
+        self.label_nombre_equipements.setObjectName(u"label_nombre_equipements")
+        self.label_nombre_equipements.setMinimumSize(QSize(50, 0))
+        self.label_nombre_equipements.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_7.addWidget(self.label_nombre_equipements, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.label_description_carte = QLabel(self.carte_equipement)
+        self.label_description_carte.setObjectName(u"label_description_carte")
+
+        self.verticalLayout_7.addWidget(self.label_description_carte)
+
+
+        self.gridLayout.addWidget(self.carte_equipement, 0, 0, 1, 1)
 
 
         self.verticalLayout_16.addWidget(self.widget_6)
@@ -1375,6 +1382,13 @@ class Ui_fen_main(object):
 
         self.verticalLayout_5.addWidget(self.zone_haut_fixe_btn_ajout_equipement)
 
+        self.line_7 = QFrame(self.page_equipement)
+        self.line_7.setObjectName(u"line_7")
+        self.line_7.setFrameShape(QFrame.Shape.HLine)
+        self.line_7.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_5.addWidget(self.line_7)
+
         self.widget_12 = QWidget(self.page_equipement)
         self.widget_12.setObjectName(u"widget_12")
         self.horizontalLayout_11 = QHBoxLayout(self.widget_12)
@@ -1385,6 +1399,7 @@ class Ui_fen_main(object):
 
         self.tableWidget_equipement = QTableWidget(self.widget_12)
         self.tableWidget_equipement.setObjectName(u"tableWidget_equipement")
+        self.tableWidget_equipement.setMinimumSize(QSize(665, 489))
         self.tableWidget_equipement.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_equipement.setShowGrid(False)
         self.tableWidget_equipement.horizontalHeader().setCascadingSectionResizes(True)
@@ -1436,6 +1451,13 @@ class Ui_fen_main(object):
 
         self.verticalLayout_17.addWidget(self.zone_haut_fixe_btn_ajout_tickets)
 
+        self.line_5 = QFrame(self.page_tickets)
+        self.line_5.setObjectName(u"line_5")
+        self.line_5.setFrameShape(QFrame.Shape.HLine)
+        self.line_5.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_17.addWidget(self.line_5)
+
         self.widget_14 = QWidget(self.page_tickets)
         self.widget_14.setObjectName(u"widget_14")
         self.horizontalLayout_12 = QHBoxLayout(self.widget_14)
@@ -1446,6 +1468,7 @@ class Ui_fen_main(object):
 
         self.tableWidget_tickets = QTableWidget(self.widget_14)
         self.tableWidget_tickets.setObjectName(u"tableWidget_tickets")
+        self.tableWidget_tickets.setMinimumSize(QSize(665, 489))
         self.tableWidget_tickets.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_tickets.setShowGrid(False)
         self.tableWidget_tickets.horizontalHeader().setCascadingSectionResizes(True)
@@ -1497,6 +1520,13 @@ class Ui_fen_main(object):
 
         self.verticalLayout_18.addWidget(self.zone_haut_fixe_btn_ajout_utilisateur)
 
+        self.line_4 = QFrame(self.page_utilisateurs)
+        self.line_4.setObjectName(u"line_4")
+        self.line_4.setFrameShape(QFrame.Shape.HLine)
+        self.line_4.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_18.addWidget(self.line_4)
+
         self.widget_16 = QWidget(self.page_utilisateurs)
         self.widget_16.setObjectName(u"widget_16")
         self.horizontalLayout_13 = QHBoxLayout(self.widget_16)
@@ -1507,6 +1537,7 @@ class Ui_fen_main(object):
 
         self.tableWidget_utilisateur = QTableWidget(self.widget_16)
         self.tableWidget_utilisateur.setObjectName(u"tableWidget_utilisateur")
+        self.tableWidget_utilisateur.setMinimumSize(QSize(665, 489))
         self.tableWidget_utilisateur.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_utilisateur.setShowGrid(False)
         self.tableWidget_utilisateur.horizontalHeader().setCascadingSectionResizes(True)
@@ -1553,10 +1584,6 @@ class Ui_fen_main(object):
         self.indicat_recherche.setText("")
         self.btn_notification_bar_nav.setText("")
         self.label_titre_tableauDeBord.setText(QCoreApplication.translate("fen_main", u"Tableau de bord", None))
-        self.label_equipement_totaux.setText(QCoreApplication.translate("fen_main", u"Equipements Totaux", None))
-        self.label.setText("")
-        self.label_nombre_equipements.setText(QCoreApplication.translate("fen_main", u"7", None))
-        self.label_description_carte.setText(QCoreApplication.translate("fen_main", u"Total des Equipements dans le parc ", None))
         self.label_titre_tickets.setText(QCoreApplication.translate("fen_main", u"Tickets ouvert", None))
         self.label_2.setText("")
         self.label_nombre_tickets_ouvert.setText(QCoreApplication.translate("fen_main", u"7", None))
@@ -1565,6 +1592,10 @@ class Ui_fen_main(object):
         self.label_3.setText("")
         self.label_nombre_intervention_encours.setText(QCoreApplication.translate("fen_main", u"4", None))
         self.label_description_carte_3.setText(QCoreApplication.translate("fen_main", u"Tickets actuellement trait\u00e9s", None))
+        self.label_equipement_totaux.setText(QCoreApplication.translate("fen_main", u"Equipements Totaux", None))
+        self.label.setText("")
+        self.label_nombre_equipements.setText(QCoreApplication.translate("fen_main", u"7", None))
+        self.label_description_carte.setText(QCoreApplication.translate("fen_main", u"Total des Equipements dans le parc ", None))
         self.label_titre_etat_equipement.setText(QCoreApplication.translate("fen_main", u"Etats des Equipements", None))
         self.label_sous_titre_etat_equipement.setText(QCoreApplication.translate("fen_main", u"R\u00e9paration des \u00e9quipement  par statut", None))
         self.label_titre_etat_equipement_2.setText(QCoreApplication.translate("fen_main", u"Tickets par priorite", None))
