@@ -995,7 +995,7 @@ class Ui_fen_main(object):
         self.bar_nav.setObjectName(u"bar_nav")
         sizePolicy1.setHeightForWidth(self.bar_nav.sizePolicy().hasHeightForWidth())
         self.bar_nav.setSizePolicy(sizePolicy1)
-        self.bar_nav.setMinimumSize(QSize(0, 35))
+        self.bar_nav.setMinimumSize(QSize(857, 41))
         self.horizontalLayout_4 = QHBoxLayout(self.bar_nav)
         self.horizontalLayout_4.setSpacing(8)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -1007,7 +1007,7 @@ class Ui_fen_main(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.BarreRecherche.sizePolicy().hasHeightForWidth())
         self.BarreRecherche.setSizePolicy(sizePolicy4)
-        self.BarreRecherche.setMinimumSize(QSize(251, 20))
+        self.BarreRecherche.setMinimumSize(QSize(251, 25))
         self.horizontalLayout_3 = QHBoxLayout(self.BarreRecherche)
         self.horizontalLayout_3.setSpacing(2)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -1393,7 +1393,7 @@ class Ui_fen_main(object):
         self.widget_12.setObjectName(u"widget_12")
         self.horizontalLayout_11 = QHBoxLayout(self.widget_12)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.horizontalSpacer = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer = QSpacerItem(30, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_11.addItem(self.horizontalSpacer)
 
@@ -1403,14 +1403,14 @@ class Ui_fen_main(object):
         self.tableWidget_equipement.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_equipement.setShowGrid(False)
         self.tableWidget_equipement.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_equipement.horizontalHeader().setProperty(u"showSortIndicator", True)
+        self.tableWidget_equipement.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tableWidget_equipement.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_equipement.verticalHeader().setVisible(False)
-        self.tableWidget_equipement.verticalHeader().setProperty(u"showSortIndicator", True)
+        self.tableWidget_equipement.verticalHeader().setProperty(u"showSortIndicator", False)
 
         self.horizontalLayout_11.addWidget(self.tableWidget_equipement)
 
-        self.horizontalSpacer_2 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(30, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_11.addItem(self.horizontalSpacer_2)
 
@@ -1462,24 +1462,25 @@ class Ui_fen_main(object):
         self.widget_14.setObjectName(u"widget_14")
         self.horizontalLayout_12 = QHBoxLayout(self.widget_14)
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.horizontalSpacer_3 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(30, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_3)
 
         self.tableWidget_tickets = QTableWidget(self.widget_14)
         self.tableWidget_tickets.setObjectName(u"tableWidget_tickets")
         self.tableWidget_tickets.setMinimumSize(QSize(665, 489))
+        self.tableWidget_tickets.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
         self.tableWidget_tickets.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_tickets.setShowGrid(False)
         self.tableWidget_tickets.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_tickets.horizontalHeader().setProperty(u"showSortIndicator", True)
+        self.tableWidget_tickets.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tableWidget_tickets.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_tickets.verticalHeader().setVisible(False)
-        self.tableWidget_tickets.verticalHeader().setProperty(u"showSortIndicator", True)
+        self.tableWidget_tickets.verticalHeader().setProperty(u"showSortIndicator", False)
 
         self.horizontalLayout_12.addWidget(self.tableWidget_tickets)
 
-        self.horizontalSpacer_4 = QSpacerItem(80, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(30, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_4)
 
@@ -1541,10 +1542,10 @@ class Ui_fen_main(object):
         self.tableWidget_utilisateur.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_utilisateur.setShowGrid(False)
         self.tableWidget_utilisateur.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_utilisateur.horizontalHeader().setProperty(u"showSortIndicator", True)
+        self.tableWidget_utilisateur.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tableWidget_utilisateur.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_utilisateur.verticalHeader().setVisible(False)
-        self.tableWidget_utilisateur.verticalHeader().setProperty(u"showSortIndicator", True)
+        self.tableWidget_utilisateur.verticalHeader().setProperty(u"showSortIndicator", False)
 
         self.horizontalLayout_13.addWidget(self.tableWidget_utilisateur)
 

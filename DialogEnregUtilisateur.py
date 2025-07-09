@@ -17,10 +17,9 @@ class DialogEnregUtilisateur(QDialog):
         # On cache le message d'erreur au début
         self.ui.label_affiche_erreur_validation.setText("")
 
-        # Rendre le fond de la fenêtre translucide (nécessaire pour les bords arrondis)
+        # Effet visuel sur le QDialog d'ajout utilisateur (DialogEnregUtilisateur)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog)
         self.setAttribute(Qt.WA_TranslucentBackground)
-        # Supprimer la barre de titre native (avec le bouton fermer)
-        self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint)
 
         # Définir un rayon pour les bords arrondis
         self.border_radius = 15

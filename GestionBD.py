@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QMessageBox
 import pymysql
 
 class GestionBD:
-    def __init__(self, host="localhost", user="root", password="", db_name="test", replace=False):
+    def __init__(self, host="localhost", user="root", password="", db_name="AssetFlow", replace=False):
         self.host = host
         self.user = user
         self.password = password

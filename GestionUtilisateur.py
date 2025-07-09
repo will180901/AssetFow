@@ -1,5 +1,7 @@
 # Nom du fichier : GestionUtilisateur.py
 
+import bcrypt # Ajout de l'import manquant
+
 # On utilise les imports de PySide6
 # from PySide6.QtSql import QSqlQuery # Plus besoin d'importer QSqlQuery ici
 from PySide6.QtWidgets import QMessageBox

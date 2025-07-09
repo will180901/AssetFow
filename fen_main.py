@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMessageBox,
-                               QTableWidgetItem, QWidget, QHeaderView)
+                               QTableWidgetItem, QWidget, QHeaderView, QToolButton, QMenu, QWidgetAction, QHBoxLayout, QVBoxLayout, QPushButton, QSizePolicy)
+from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont, QFontDatabase
+from functools import partial
 
 from ui_form import Ui_fen_main
 from NavigationManager import NavigationManager
@@ -11,6 +12,7 @@ from GestionBD import GestionBD
 from GestionUtilisateur import GestionUtilisateur
 from GestionBadge import GestionBadge
 from DialogEnregUtilisateur import DialogEnregUtilisateur
+from FenModifierUtilisateur import FenModifierUtilisateur
 
 
 class fen_main(QMainWindow):
@@ -28,7 +30,7 @@ class fen_main(QMainWindow):
             "host": "localhost",
             "user": "root",
             "password": "motdepasse",  # TODO: Sécuriser le mot de passe
-            "db_name": "test",
+            "db_name": "AssetFlow",
             "replace": False
         }
 
@@ -38,6 +40,32 @@ class fen_main(QMainWindow):
         self.init_gestionnaires()
         self.connecter_signaux()
         self.actualiser_tableaux()
+
+        # Appliquer un effet glassmorphism (miroir/transparent) au tableau utilisateur avec header semi-transparent
+        self.ui.tableWidget_utilisateur.setStyleSheet('''
+            QTableWidget {
+                background: rgba(255, 255, 255, 0.30);
+                border-radius: 8px;
+                border: 1px solid rgba(200,200,200,0.18);
+                backdrop-filter: blur(8px);
+                -qt-background-role: 10;
+                font-size: 10pt;
+            }
+            QHeaderView::section {
+                background: rgba(25, 118, 210, 0.18);
+                color: #1976D2;
+                border: none;
+                font-weight: 600;
+                font-size: 10pt;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                padding: 6px 0px;
+            }
+            QTableWidget::item {
+                background: transparent;
+                font-size: 10pt;
+            }
+        ''')
 
     def init_navigation(self):
         """Initialise le gestionnaire de navigation."""
@@ -155,8 +183,8 @@ class fen_main(QMainWindow):
 
             # Configuration du tableau
             table.setRowCount(0)
-            table.setColumnCount(4)
-            headers = ["ID", "Nom complet", "Email", "Rôle"]
+            table.setColumnCount(5)
+            headers = ["ID", "Nom complet", "Email", "Rôle", "Action"]
             table.setHorizontalHeaderLabels(headers)
 
             # Configuration des colonnes
@@ -173,8 +201,143 @@ class fen_main(QMainWindow):
                 badge = self._creer_badge_role(user['role'])
                 table.setCellWidget(row_num, 3, badge)
 
-                # Ajustement de la hauteur de ligne
+                # Ajout du bouton d'action
+                btn_action = QToolButton()
+                # Utilisation d'une icône locale ou fallback unicode
+                icone = QIcon(":/icon_blanc/more-horizontal.svg") if QIcon.hasThemeIcon(":/icon_blanc/more-horizontal.svg") else QIcon()
+                btn_action.setIcon(icone)
+                if icone.isNull():
+                    btn_action.setText("⋮")  # fallback unicode
+                btn_action.setPopupMode(QToolButton.InstantPopup)
+                btn_action.setStyleSheet("""
+                    QToolButton {
+                        border: none;
+                        background: transparent;
+                        padding: 0px 8px;
+                        min-width: 32px;
+                        min-height: 28px;
+                        font-size: 10pt;
+                    }
+                    QToolButton:hover {
+                        background: rgba(25, 118, 210, 0.10);
+                        border-radius: 14px;
+                    }
+                """)
+                # --- Menu flottant moderne ---
+                # --- Menu flottant responsive (actions horizontales sur large, verticales sur petit) ---
+                class ResponsiveMenu(QMenu):
+                    def __init__(self, parent=None):
+                        super().__init__(parent)
+                        self.setStyleSheet("""
+                            QMenu {
+                                background: #fff;
+                                border-radius: 14px;
+                                border: 1px solid #e0e0e0;
+                                padding: 8px 0px;
+                                min-width: 160px;
+                                font: 10pt 'Segoe UI';
+                                box-shadow: 0px 8px 24px rgba(0,0,0,0.08);
+                                clip-path: inset(0 round 14px);
+                            }
+                        """)
+                        self.widget = QWidget(self)
+                        self.layout_h = QHBoxLayout()
+                        self.layout_h.setContentsMargins(8, 8, 8, 8)
+                        self.layout_h.setSpacing(12)
+                        self.btn_modifier = QPushButton("Modifier")
+                        self.btn_supprimer = QPushButton("Supprimer")
+                        self.btn_modifier.setCursor(Qt.PointingHandCursor)
+                        self.btn_supprimer.setCursor(Qt.PointingHandCursor)
+                        self.btn_supprimer.setStyleSheet("color: #d32f2f; font-weight: bold;")
+                        self.btn_modifier.setStyleSheet("color: #1976D2; font-weight: 500;")
+                        self.btn_modifier.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+                        self.btn_supprimer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+                        self.layout_h.addWidget(self.btn_modifier)
+                        self.layout_h.addWidget(self.btn_supprimer)
+                        self.widget.setLayout(self.layout_h)
+                        action_widget = QWidgetAction(self)
+                        action_widget.setDefaultWidget(self.widget)
+                        self.addAction(action_widget)
+                        # Responsive : vertical si largeur < 320px
+                        self.widget.resizeEvent = self._resize_event
+                    def _resize_event(self, event):
+                        if self.widget.width() < 320:
+                            layout = QVBoxLayout()
+                            layout.setContentsMargins(8, 8, 8, 8)
+                            layout.setSpacing(8)
+                            layout.addWidget(self.btn_modifier)
+                            layout.addWidget(self.btn_supprimer)
+                            self.widget.setLayout(layout)
+                        else:
+                            self.widget.setLayout(self.layout_h)
+                        QWidget.resizeEvent(self.widget, event)
+
+                # --- OUTIL ROBUSTE POUR TROUVER LA LIGNE DU BOUTON ---
+                def get_row_for_button(btn, table):
+                    for r in range(table.rowCount()):
+                        if table.cellWidget(r, 4) is btn:
+                            return r
+                    return -1
+
+                def supprimer_utilisateur_depuis_bouton(btn, table=table, utilisateurs=utilisateurs):
+                    row = get_row_for_button(btn, table)
+                    if row < 0:
+                        return
+                    id_item = table.item(row, 0)
+                    if not id_item:
+                        return
+                    id_utilisateur = id_item.text()
+                    utilisateur = next((u for u in utilisateurs if str(u['id']) == id_utilisateur), None)
+                    if utilisateur is None:
+                        return
+                    rep = QMessageBox.question(self, "Confirmation", f"Supprimer l'utilisateur {utilisateur['nom']} ?", QMessageBox.Yes | QMessageBox.No)
+                    if rep == QMessageBox.Yes:
+                        if self.gestion_utilisateurs.supprimer_utilisateur(utilisateur['id']):
+                            self.actualiser_tableau_utilisateurs()
+                        else:
+                            QMessageBox.critical(self, "Erreur", "La suppression a échoué.")
+
+                def ouvrir_dialog_modification_depuis_bouton(btn, table=table, utilisateurs=utilisateurs):
+                    row = get_row_for_button(btn, table)
+                    if row < 0:
+                        return
+                    id_item = table.item(row, 0)
+                    if not id_item:
+                        return
+                    id_utilisateur = id_item.text()
+                    utilisateur = next((u for u in utilisateurs if str(u['id']) == id_utilisateur), None)
+                    if utilisateur is None:
+                        return
+                    dialog = FenModifierUtilisateur(utilisateur, self.gestion_utilisateurs, self)
+                    if dialog.exec():
+                        self.actualiser_tableau_utilisateurs()
+
+                # --- Connexion des actions ---
+                menu = ResponsiveMenu()
+                # Connexion des actions
+                menu.btn_modifier.clicked.connect(partial(ouvrir_dialog_modification_depuis_bouton, btn_action))
+                menu.btn_supprimer.clicked.connect(partial(supprimer_utilisateur_depuis_bouton, btn_action))
+
+                # Nettoyage préalable de la cellule Action pour éviter les doublons ou widgets fantômes
+                if table.cellWidget(row_num, 4) is not None:
+                    old_widget = table.cellWidget(row_num, 4)
+                    old_widget.deleteLater()
+                    table.removeCellWidget(row_num, 4)
+                table.setCellWidget(row_num, 4, btn_action)
                 table.setRowHeight(row_num, 40)
+
+                # Affichage du menu flottant sous le bouton action au clic
+                def make_show_menu(btn, menu):
+                    def show_menu(_=None):
+                        rect = btn.rect()
+                        global_pos = btn.mapToGlobal(rect.bottomLeft())
+                        menu_width = menu.sizeHint().width()
+                        btn_width = btn.width()
+                        global_pos.setX(global_pos.x() + (btn_width // 2) - (menu_width // 2))
+                        menu.popup(global_pos)
+                    return show_menu
+                btn_action.clicked.disconnect()
+                btn_action.clicked.connect(make_show_menu(btn_action, menu))
 
         except Exception as e:
             self._afficher_erreur(f"Erreur MàJ tableau utilisateurs :\n{str(e)}")
@@ -203,5 +366,5 @@ class fen_main(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = fen_main()
-    widget.show()
+    widget.showMaximized()
     sys.exit(app.exec())
